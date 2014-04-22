@@ -1,0 +1,47 @@
+{% extends "layout.html" %}
+{% block body %}
+<script>
+var row_number = 0;
+
+$(function() {
+	row_number += 1;
+
+	$('#add_author').bind('click', function() {
+		var row = '<div id="row'+row_number+'"><dt>Author:<dd><input type="text" name="qty[]" size="30"><a href="#" id="remove_author">Remove author</a></div>';
+		jQuery('#item_rows').append(row);
+
+		$('#remove_author:last-child').bind('click', function() {
+			jQuery('#row' + row_number).remove();
+		});
+	});
+});
+</script>
+	{% if session.logged_in %}
+		<h2>Add Book</h2>
+		<div class=add-book>
+		<form action="{{ url_for('add_book')}}" method=post>
+			<dl>
+			<div id="item_rows">
+				<dt>Title:
+				<dd><input type=text size=30 name=title>
+			</div>
+				<dt>Author:
+				<dd><input type=text size=30 name=author><a href="#" id="add_author">More authors</a>
+				<dd><input type=submit value=Add>
+			</dl>
+		</form>
+		</div>
+	{% endif %}
+	<ul class=books>
+	{% if books %}
+		{% for book in books %}
+		<li><h2><a href="{{ url_for('book', title=book.title) }}">{{ book.title }}</a></h2></li>
+			{% for author in book.author %}
+			<li><a href="{{ url_for('author', name=author.first_name) }}">{{ author.first_name }}</a></li>
+			{% endfor %}
+		{% endfor %}
+	{% else %}
+		<li><em>Oops! Library is empty now.</em>
+	{% endif %}
+	</ul>
+{% endblock %}

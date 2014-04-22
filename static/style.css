@@ -1,0 +1,38 @@
+html 				{ background: #6699ff; }
+body 				{ font-family: sans-serif; background: #fff; margin: 0
+						auto; width: 900px; border-radius: 15px; }
+a, h1, h2 			{ color: #377ba8; font-family: Arial, sans-serif;}
+h1 					{ border-bottom: 2px solid #eee; }
+h2 					{ font-size: 1.2em; }
+
+.head				{ height: 120px; }
+.login				{ padding-left: 750px; margin-top: 10px; }
+.logo 				{ background-image: url(logo.png); float: left; width: 200px; height: 100px; }
+.nav  				{ border-radius: 15px; background: #fff; margin: 40px 0 0 10px; }
+.search 			{ background: #fff; border-radius: 15px; margin: 0 0 5px 20px; }
+.search ul			{ list-style-type: none; margin: 0; padding: 0; overflow: hidden; }
+.search label		{ font-size: 0.8em; }
+.result				{ list-style: none; margin: 0; padding: 0; background: #fff; display: block; }
+.result li 			{ margin: 0.8em 1.2em; }
+.result h2 			{ margin-left: -1em; }
+.result input		{ float: left; }
+.page 				{ margin: 2em auto; width: 45em; border: 5px solid #eee;
+						padding: 0.8em, background: #ffc; }
+.menu				{ background: #fff; margin: 45px 0 10px 30px; }
+.menu ul			{ list-style-type: none; margin: 0; padding: 0; overflow: hidden; }
+.menu li 			{ float: left; }
+.menu a 			{ display: block; width: 120px; color: #fff; background-color: #377ba8;
+						text-align: center; padding: 2px; text-decoration: none;
+						text-transform: uppercase; margin:0 10px; }
+.menu a:hover 		{ color: #cff; background: #6437a8; }
+.books              { list-style: none; margin: 0; padding: 0; background: #fff; display: block; }
+.books li 			{ margin: 0.8em 1.2em; }
+.books li h2 		{ margin-left: -1em; }
+.add-book 			{ font-size: 0.9em; border-bottom: 1px solid #ccc; }
+.add-book dt 		{ font-weight: bold; }
+.metanav 			{ text-align: right; font-size: 0.8em; padding: 0.3em;
+						margin-bottom: 1em; background: #fafafa; }
+.metanav a 			{ float: right; margin-left: 16em; }
+.books a:hover 		{ color:#cff; background: #6437a8; }
+.flash 				{ background: #cee5f5; padding: 0.5em; border: 1px solid #aacbe2; }
+.error 				{ background: #f0d6d6; padding: 0.5em; }

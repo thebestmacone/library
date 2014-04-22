@@ -1,0 +1,17 @@
+{% extends "layout.html" %}
+{% block body %}
+<script>
+$(document).ready(function() {
+	$('.edit').editable(function(value, settings) {
+		$(this).text(value);
+   	}, {
+      submit: 'Ok',
+      cancel: 'Cancel',
+      type: 'textarea'
+   });
+});
+</script>
+	<ul class=result>
+		<li><h1 class=edit>{{ author.first_name }}</h1>click author name to edit</li>
+	</ul>
+{% endblock %}

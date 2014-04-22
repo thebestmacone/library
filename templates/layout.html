@@ -1,0 +1,44 @@
+<!doctype html>
+<title>Library</title>
+<link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
+<script type=text/javascript src="{{url_for('static', filename='jquery-2.0.0.js')}}"></script>
+<script type=text/javascript src="{{url_for('static', filename='jquery.jeditable.js')}}"></script>
+<script> var $SCRIPT_ROOT = {{ request.script_root|tojson|safe }}</script>
+<div class=head>
+	<div class=login>
+		{% if not session.logged_in %}
+			<a href="{{ url_for('login') }}">log in</a>
+			<a href="{{ url_for('register') }}">register</a>
+		{% else %}
+			<a href="{{ url_for('logout') }}">log out</a>
+		{% endif %}	
+	</div>
+		<nav>
+			<a href="{{ url_for('library') }}"><div class=logo></div></a>
+		</nav>
+	<div class=menu>
+		<ul>
+			<li><a href="{{ url_for('library') }}">Library</a></li>
+			<li><a href="{{ url_for('all_books') }}">Books</a></li>
+			<li><a href="{{ url_for('all_authors') }}">Authors</a></li>
+		</ul>
+    </div>
+</div>
+{% if session.logged_in %} 
+<div class=search>
+	<form action="{{ url_for('search')}}" method=post class=search-book>
+		<input type=text name=something>
+		<input type=submit value=Search>
+		<ul>
+			<li><input type=radio name=search_type value=title checked=checked autocomplete=off><label>by title</label></li>
+			<li><input type=radio name=search_type value=name autocomplete=off><label>by author</label></li>
+		</ul>
+	</form>
+</div>
+{% endif %}
+<div class=nav>
+	{% for message in get_flashed_messages() %}
+	<div class=flash>{{ message }}</div>
+	{% endfor %}
+	{% block body %}{% endblock %}
+</div>	

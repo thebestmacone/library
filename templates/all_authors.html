@@ -1,0 +1,13 @@
+{% extends "layout.html" %}
+{% block body %}
+	<h2>All Authors</h2>
+	<ul class=books>
+	{% if authors %}
+		{% for author in authors %}
+			<li><a href="{{ url_for('author', name=author.first_name) }}">{{ author.first_name }}</a>
+		{% endfor %}
+	{% else %}
+		<li><em>Oops! Library is empty now.</em>
+	{% endif %}
+	</ul>
+{% endblock %}
